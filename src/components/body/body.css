@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat',sans-serif;
+}
+.body1{
+    background-color:mistyrose;
+    width: 100%;
+    overflow-x: hidden;
+}
+.logogif{
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+   
+}
+.gif{
+    width: 30%;
+    height: 30%;
+}
+/* .circulo1{
+    height: 250px;
+    width: 250px;
+    border-radius: 50%;
+    background-color: black;
+    animation: movimiento 5s linear infinite;
+
+
+}
+.circulo2{
+    height: 250px;
+    width: 250px;
+    border-radius: 50%;
+    background-color: black;
+    animation: movimiento 5s linear infinite;
+   
+    
+}
+.circulo3{
+    height: 250px;
+    width: 250px;
+    border-radius: 50%;
+    background-color: black;
+    animation: movimiento 5s linear infinite;
+
+} */
+
+
+.burbujas{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: row;
+    margin-top: -100PX;
+}
+.burbuja1{
+    height: 250px;
+    width: 250px;
+    border-radius: 50%;
+    background-image: url(../../multimedia/burbuja\ cafeteria.png);
+    background-size: cover;
+}
+.burbuja2{
+    height: 250px;
+    width: 250px;
+    border-radius: 50%;
+    background-image: url(../../multimedia/Burbuja\ restobar.png);
+    background-size: cover;
+}
+.burbuja3{
+    height: 250px;
+    width: 250px;
+    border-radius: 50%;
+    background-image: url(../../multimedia/burbuja\ sobre\ nosotros.png);
+    background-size: cover;
+}
+.burbuja1:hover{
+    opacity: 50%;
+    scale: 1.05;
+
+}
+.burbuja2:hover{
+    opacity: 50%;
+    scale: 1.05;
+
+}
+.burbuja3:hover{
+    opacity: 50%;
+    scale: 1.05;
+
+}
+.burbuja1-padre{
+    border-radius: 50%;
+    margin-top: -40px;
+    width:350px;
+    height:350px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    
+
+}
+.burbuja2-padre{
+    
+    border-radius: 50%;
+    margin-top: -40px;
+    width:350px;
+    height:350px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+}
+.burbuja3-padre{
+    border-radius: 50%;
+    margin-top: -40px;
+    width:350px;
+    height:350px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    
+    
+}
+@keyframes movimiento{
+    0%{
+        transform: translateY(50px);
+    }
+    50%{
+        transform: translateY(-50px);
+    }
+    100%{
+        transform: translateY(50px);
+    }
+}

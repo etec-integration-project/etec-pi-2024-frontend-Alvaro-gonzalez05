@@ -16,7 +16,7 @@ export default function Header() {
             <div className="barnav">
                 
                 <li><a href="" className="Home_Barnav">Home </a></li>
-                <li><a href="" className="Menu_Barnav">Menu</a></li>
+                <li><a href="/carrito" className="Menu_Barnav">Menu</a></li>
                 <li><a href="" className="staff_Barnav">Staff Catering</a></li>
             
             </div>    

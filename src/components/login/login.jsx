@@ -4,14 +4,39 @@ import { SiGoogle } from "react-icons/si";
 import { AiFillPhone } from "react-icons/ai";
 import { AiOutlineUser } from "react-icons/ai";
 
-import React, { useState } from 'react';    
+import React from 'react';    
 
 import { BiLockAlt } from "react-icons/bi";
 import {Link} from 'react-router-dom';
+import { useState } from "react";
+import axios from "axios";
 
-export default function Login() {
+const Login = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-    return(
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post("http://localhost:3000/login", {
+        email,
+        password,
+      });
+      alert(response.data.message);
+      // Aquí puedes guardar el token en localStorage o en un contexto global
+      // localStorage.setItem("token", response.data.token);
+    } catch (error) {
+      if (error.response && error.response.status === 401) {
+        alert("Credenciales incorrectas. Por favor, verifica tu correo y contraseña.");
+      } else {
+        alert("Error iniciando sesión. Inténtalo nuevamente.");
+      }
+      console.error("Error logging in:", error);
+    }
+  };
+
+  return (
+    <div>
         <div className="body">
             <div className="contenedor-form">
                 <div className="info">
@@ -41,16 +66,16 @@ export default function Login() {
                                 </div>
                             </div>
                             <p>o usa tu nombre de usuario</p>
-                            <form className='form'>
+                            <form className='form' onSubmit={handleLogin}>
                                 <label >
                                     <AiOutlineUser/>
-                                    <input type="email"  placeholder="email"/>
-                                </label>
+                                    <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" required />
+                                    </label>
                                 
                                 <label >
                                     <BiLockAlt/>
-                                    <input type="password" placeholder="Contraseña"/>
-                                </label>
+                                    <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Password" required />
+                                    </label>
                                 
                                 <input type="submit" value="Iniciar sesion"/>
                             </form> 
@@ -58,5 +83,11 @@ export default function Login() {
                 </div>
             </div>
         </div>
-    )
-}
+        
+    </div>
+  );
+};
+
+export default Login;
+
+

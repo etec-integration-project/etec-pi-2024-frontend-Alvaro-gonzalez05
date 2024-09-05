@@ -4,7 +4,7 @@ import { AiFillPhone } from "react-icons/ai";
 import { AiOutlineUser } from "react-icons/ai";
 import { AiOutlineMail } from "react-icons/ai";
 import { BiLockAlt } from "react-icons/bi";
-import { BsArrowRepeat } from "react-icons/bs";
+
 import { BiArrowBack } from "react-icons/bi";
 import {Link} from 'react-router-dom';
 

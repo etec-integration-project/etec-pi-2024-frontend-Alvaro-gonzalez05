@@ -11,7 +11,7 @@
     align-items: center;
     justify-content: center;
     height: 100vh;
-    background-color: mistyrose;
+    background-color: #FFF5E5;
 
 
 }
@@ -45,6 +45,7 @@
     margin-left: -330px;
     margin-top: 15px;
     cursor: pointer;
+    color: #000;
     
 }
 .back:hover{
@@ -66,16 +67,17 @@
 }
 .info-childs input{
     background-color: transparent;
-    outline: none;
-    border: solid 2px #9191bd;
+    
+    background-color: #000;
     border-radius: 20px;
     padding: 10px 20px;
-    color: #9191bd;
+    color: #fff;
     cursor: pointer;
     transition: background-color .3s ease;
 }
 .info-childs input:hover{
-    background-color: #9191bd;
+    background-color: #605e5e;
+    border: none;
     color: #fff;
     box-shadow: 0 2px 5px rgba(0, 0, 0, .1);
 
@@ -114,30 +116,30 @@
 .burbujagoogle{
     padding: 10px 10px;
     border-radius: 20px;
-    border: solid 1px #9191bd;
+    border: solid 1px #000;
     cursor: pointer;
-    color: #9191bd;
+    color: #000;
     transition: background-color 0.3s ease;
     box-shadow: 0 2px 5px rgba(0, 0, 0, .1);
 
 
 }
 .burbujagoogle:hover{
-    background-color: #c7c7f3;
+    background-color: #000;
     color: #fff;
 }
 .burbujatelefono{
     padding: 10px 10px;
     border-radius: 20px;
-    border: solid 1px #9191bd;
+    border: solid 1px #000;
     cursor: pointer;
-    color: #9191bd;
+    color: #000;
     transition: background-color 0.3s ease;
     box-shadow: 0 2px 5px rgba(0, 0, 0, .1);
 
 }
 .burbujatelefono:hover{
-    background-color: #c7c7f3;
+    background-color: #000;
     color: #fff;
 }
 .form{
@@ -163,7 +165,7 @@
     color: #333;
 }
 .form input[type="submit"]{
-    background-color: #9191bd;
+    background-color: #000;
     color: #fff;
     border-radius: 20px;
     border: none;
@@ -174,7 +176,7 @@
 
 }
 .form input[type="submit"]:hover{
-    background-color:#7a7a9a ;
+    background-color:#605e5e ;
 
 }
 

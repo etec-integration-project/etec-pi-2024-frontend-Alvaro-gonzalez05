@@ -14,6 +14,13 @@ export const ProductList = ({ allProducts, setAllProducts, countProducts, setCou
     }, []);
 
     const onAddProduct = product => {
+        // Verificar si el usuario está autenticado
+        const token = localStorage.getItem('token');
+        if (!token) {
+            alert('Debes iniciar sesión para añadir productos al carrito.');
+            return; // Simplemente alerta pero no redirige
+        }
+
         if (allProducts.find(item => item.id === product.id)) {
             const products = allProducts.map(item =>
                 item.id === product.id
@@ -33,22 +40,25 @@ export const ProductList = ({ allProducts, setAllProducts, countProducts, setCou
     if (products.length === 0) {
         return <p>Cargando productos...</p>;
     }
-	return (
-		<div className='container-items'>
-			{products.map(product => (
-				<Zoom cascade ><div className='item' key={product.id}>
-					<figure>
-						<img src={product.img} alt={product.nameProduct} />
-					</figure>
-					<div className='info-product'>
-						<h2>{product.nameProduct}</h2>
-						<p className='price'>${product.price}</p>
-						<button onClick={() => onAddProduct(product)}>
-							Añadir al carrito
-						</button>
-					</div>
-				</div></Zoom>
-			))}
-		</div>
-	);
+
+    return (
+        <div className='container-items'>
+            {products.map(product => (
+                <Zoom cascade>
+                    <div className='item' key={product.id}>
+                        <figure>
+                            <img src={product.img} alt={product.nameProduct} />
+                        </figure>
+                        <div className='info-product'>
+                            <h2>{product.nameProduct}</h2>
+                            <p className='price'>${product.price}</p>
+                            <button onClick={() => onAddProduct(product)}>
+                                Añadir al carrito
+                            </button>
+                        </div>
+                    </div>
+                </Zoom>
+            ))}
+        </div>
+    );
 };

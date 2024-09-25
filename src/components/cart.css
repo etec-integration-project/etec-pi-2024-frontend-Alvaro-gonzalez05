@@ -15,13 +15,25 @@ img {
 /* Header */
 header {
 	display: flex;
-	z-index: 10;
+	position: relative;
+    z-index: 1; 
 	justify-content: space-between;
 	
 	padding: 30px 0 40px 0;
 
 	width: 100%;
+	
 }
+
+.padre{
+	position: absolute; /* Se sale del flujo del documento */
+    top: -20px; /* Ajusta la posición como necesites */
+    left: 0;
+    z-index: 100; 
+	background-color:#FFF5E5 ;
+	border-radius: 10px;
+}
+
 
 .container-icon {
 	position: relative;
@@ -60,7 +72,7 @@ header {
 
 	background-color: #FFF5E5;
 	width: 400px;
-	z-index: 1;
+	
 	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 	border-radius: 10px;
 }
@@ -70,7 +82,7 @@ header {
 	align-items: center;
 	justify-content: space-between;
 	padding: 30px;
-
+	
 	border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
 

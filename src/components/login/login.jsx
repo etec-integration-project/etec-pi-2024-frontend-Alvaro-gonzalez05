@@ -24,7 +24,13 @@ const Login = () => {
       });
       alert(response.data.message);
       // Aquí puedes guardar el token en localStorage o en un contexto global
-      // localStorage.setItem("token", response.data.token);
+       // Guarda el token en localStorage si existe
+       if (response.data.token) {
+        localStorage.setItem("token", response.data.token);
+        window.location.href = "/"; // Redirige al usuario después de iniciar sesión
+      } else {
+        alert("No se recibió un token. Inténtalo nuevamente.");
+      }
     } catch (error) {
       if (error.response && error.response.status === 401) {
         alert("Credenciales incorrectas. Por favor, verifica tu correo y contraseña.");

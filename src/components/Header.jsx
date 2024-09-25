@@ -2,6 +2,7 @@ import { useState } from 'react';
 import {Link} from 'react-router-dom';
 import loginpng from "../multimedia/Login.png";
 import {Slide} from 'react-awesome-reveal'
+
 export const Header = ({
 	allProducts,
 	setAllProducts,
@@ -11,6 +12,9 @@ export const Header = ({
 	setTotal,
 }) => {
 	const [active, setActive] = useState(false);
+
+	// Verificación de si el usuario está autenticado
+	const token = localStorage.getItem('token');
 
 	const onDeleteProduct = product => {
 		const results = allProducts.filter(
@@ -27,12 +31,19 @@ export const Header = ({
 		setTotal(0);
 		setCountProducts(0);
 	};
+
 	const onPayCart = async () => {
 		if (allProducts.length === 0) {
 			alert("No hay productos en el carrito para pagar.");
 			return;
 		}
-	
+		
+		// Verificar si el usuario está autenticado antes de pagar
+		if (!token) {
+			alert('Debes iniciar sesión para pagar.');
+			return;
+		}
+
 		const orderData = {
 			products: allProducts,
 			totalPrice: total,
@@ -43,6 +54,7 @@ export const Header = ({
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json',
+					'Authorization': `Bearer ${token}` // Agrega el token en el header
 				},
 				body: JSON.stringify(orderData),
 			});
@@ -60,12 +72,12 @@ export const Header = ({
 			alert("Error al realizar el pago.");
 		}
 	};
-
+	
 	return (
 		<header>
 			<h1></h1>
 
-			<Slide direction='right'><div className='container-icon'>
+			<div className='container-icon'>
 				<li className="liDerecha" id='sesion'><Link to="/login"><img src={loginpng}alt="" className="loginImg" /></Link></li>
 				<div
 					className='container-cart-icon'
@@ -96,7 +108,7 @@ export const Header = ({
 					}`}
 				>
 					{allProducts.length ? (
-						<>
+						<div className='padre'>
 							<div className='row-product'>
 								{allProducts.map(product => (
 									<div className='cart-product' key={product.id}>
@@ -129,23 +141,25 @@ export const Header = ({
 									</div>
 								))}
 							</div>
+							<div className="botones">
 
-							<div className='cart-total'>
-								<h3>Total:</h3>
-								<span className='total-pagar'>${total}</span>
+								<div className='cart-total'>
+									<h3>Total:</h3>
+									<span className='total-pagar'>${total}</span>
+								</div>
+								<button className='btn-pagar' onClick={onPayCart}>
+									PAGAR
+								</button>
+								<button className='btn-clear-all' onClick={onCleanCart}>
+									Vaciar Carrito
+								</button>
 							</div>
-							<button className='btn-pagar' onClick={onPayCart}>
-								PAGAR
-							</button>
-							<button className='btn-clear-all' onClick={onCleanCart}>
-								Vaciar Carrito
-							</button>
-						</>
+						</div>
 					) : (
 						<p className='cart-empty'>El carrito está vacío</p>
 					)}
 				</div>
-			</div></Slide>
+			</div>
 		</header>
 		
 	);

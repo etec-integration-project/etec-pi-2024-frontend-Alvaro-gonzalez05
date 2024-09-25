@@ -27,6 +27,15 @@ const Register = () => {
         password,
       });
       alert(response.data.message);
+
+       // Guarda el token en localStorage si existe
+       if (response.data.token) {
+        localStorage.setItem("token", response.data.token);
+        window.location.href = "/"; // Redirige al usuario después de registrarse
+      } else {
+        alert("No se recibió un token. Inténtalo nuevamente.");
+      }
+
     } catch (error) {
       if (error.response && error.response.status === 409) {
         alert("El usuario ya existe. Por favor, elige otro correo electrónico.");

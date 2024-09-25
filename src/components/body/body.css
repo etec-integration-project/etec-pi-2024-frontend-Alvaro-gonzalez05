@@ -6,9 +6,13 @@
     align-items: center;
     justify-content: center;
     height: 100vh;
+   
     flex-direction: column;
     
-    transform: translateY(-100px);
+    position: relative; /* Asegúrate de que no interfiera con z-index */
+    z-index: 10;
+    
+  
 }
 
 
@@ -46,16 +50,21 @@ body {
     height: 450px;
     width: 450px;
     transform: translateY(-70px);
+    
+
 }
 
 .marco{
-    transform: translateY(-100px);
+    
+    
+    transform: translateY(-150px);
     
 }
 
 #bodytext {
     position: absolute;
-    border: solid 1px black;
+    
+    
     margin-left: 300px;
     border-radius: 15px;
     background-color: #2E2E2E;

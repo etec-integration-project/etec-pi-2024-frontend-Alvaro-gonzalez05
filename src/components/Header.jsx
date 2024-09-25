@@ -1,5 +1,7 @@
 import { useState } from 'react';
-
+import {Link} from 'react-router-dom';
+import loginpng from "../multimedia/Login.png";
+import {Slide} from 'react-awesome-reveal'
 export const Header = ({
 	allProducts,
 	setAllProducts,
@@ -25,16 +27,46 @@ export const Header = ({
 		setTotal(0);
 		setCountProducts(0);
 	};
-	const onPayCart = () => {
-		alert("Pago realizado con éxito");
-		setTotal([]); // Limpiamos el carrito después de realizar el pago
-	  };
+	const onPayCart = async () => {
+		if (allProducts.length === 0) {
+			alert("No hay productos en el carrito para pagar.");
+			return;
+		}
+	
+		const orderData = {
+			products: allProducts,
+			totalPrice: total,
+		};
+	
+		try {
+			const response = await fetch('http://localhost:3000/orders', {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify(orderData),
+			});
+	
+			if (response.ok) {
+				alert("Pago realizado con éxito.");
+				setAllProducts([]); // Limpiamos el carrito después de realizar el pago
+				setTotal(0);
+				setCountProducts(0);
+			} else {
+				alert("Error al realizar el pago.");
+			}
+		} catch (error) {
+			console.error("Error al conectar con el backend:", error);
+			alert("Error al realizar el pago.");
+		}
+	};
 
 	return (
 		<header>
-			<h1>Tienda</h1>
+			<h1></h1>
 
-			<div className='container-icon'>
+			<Slide direction='right'><div className='container-icon'>
+				<li className="liDerecha" id='sesion'><Link to="/login"><img src={loginpng}alt="" className="loginImg" /></Link></li>
 				<div
 					className='container-cart-icon'
 					onClick={() => setActive(!active)}
@@ -113,7 +145,8 @@ export const Header = ({
 						<p className='cart-empty'>El carrito está vacío</p>
 					)}
 				</div>
-			</div>
+			</div></Slide>
 		</header>
+		
 	);
 };

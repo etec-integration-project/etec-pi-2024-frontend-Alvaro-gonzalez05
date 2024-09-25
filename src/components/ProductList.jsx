@@ -1,34 +1,42 @@
-import { data } from '../data';
+import React, { useEffect, useState } from 'react';
+import { fetchProducts } from '../data';
+import { Zoom } from 'react-awesome-reveal';
 
-export const ProductList = ({
-	allProducts,
-	setAllProducts,
-	countProducts,
-	setCountProducts,
-	total,
-	setTotal,
-}) => {
-	const onAddProduct = product => {
-		if (allProducts.find(item => item.id === product.id)) {
-			const products = allProducts.map(item =>
-				item.id === product.id
-					? { ...item, quantity: item.quantity + 1 }
-					: item
-			);
-			setTotal(total + product.price * product.quantity);
-			setCountProducts(countProducts + product.quantity);
-			return setAllProducts([...products]);
-		}
+export const ProductList = ({ allProducts, setAllProducts, countProducts, setCountProducts, total, setTotal }) => {
+    const [products, setProducts] = useState([]);
 
-		setTotal(total + product.price * product.quantity);
-		setCountProducts(countProducts + product.quantity);
-		setAllProducts([...allProducts, product]);
-	};
+    useEffect(() => {
+        const loadProducts = async () => {
+            const fetchedProducts = await fetchProducts();
+            setProducts(fetchedProducts);
+        };
+        loadProducts();
+    }, []);
 
+    const onAddProduct = product => {
+        if (allProducts.find(item => item.id === product.id)) {
+            const products = allProducts.map(item =>
+                item.id === product.id
+                    ? { ...item, quantity: item.quantity + 1 }
+                    : item
+            );
+            setTotal(total + product.price * product.quantity);
+            setCountProducts(countProducts + product.quantity);
+            setAllProducts(products);
+        } else {
+            setTotal(total + product.price * product.quantity);
+            setCountProducts(countProducts + product.quantity);
+            setAllProducts([...allProducts, product]);
+        }
+    };
+
+    if (products.length === 0) {
+        return <p>Cargando productos...</p>;
+    }
 	return (
 		<div className='container-items'>
-			{data.map(product => (
-				<div className='item' key={product.id}>
+			{products.map(product => (
+				<Zoom cascade ><div className='item' key={product.id}>
 					<figure>
 						<img src={product.img} alt={product.nameProduct} />
 					</figure>
@@ -39,7 +47,7 @@ export const ProductList = ({
 							Añadir al carrito
 						</button>
 					</div>
-				</div>
+				</div></Zoom>
 			))}
 		</div>
 	);

@@ -4,10 +4,12 @@ import Headernav from './components/hedear/header';
 import Login from './components/login/login';
 import Register from './components/register/register';
 import Appcart from './components/appcard';
+import { Header } from './components/Header';
+import { useState } from 'react';
 
 // import Carrito from './components/carrito/carrito';
 import {BrowserRouter as Router, Routes,Route} from 'react-router-dom';
-import Header from './components/hedear/header';
+
 
 
 function App() {
@@ -17,8 +19,7 @@ function App() {
       <Router>
         <Routes>
           <Route path='/' element={<>
-          <Headernav />
-          <Body />
+            <Appcart/>
           </>
         } />
         <Route path='/login' element={<>
@@ -32,7 +33,7 @@ function App() {
           </>
         } />
         <Route path='/menu' element={<>
-          <Appcart/>
+          
           
           
           </>

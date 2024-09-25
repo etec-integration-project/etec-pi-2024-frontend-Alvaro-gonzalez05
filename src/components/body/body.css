@@ -1,142 +1,268 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    font-family: 'Montserrat',sans-serif;
-}
-.body1{
-    background-color:mistyrose;
-    width: 100%;
-    overflow-x: hidden;
-}
-.logogif{
+/* Estilos base */
+
+.pagina1 {
     
     display: flex;
-    flex-direction: row;
-    justify-content: center;
     align-items: center;
-   
+    justify-content: center;
+    height: 100vh;
+    flex-direction: column;
+    
+    transform: translateY(-100px);
 }
-.gif{
-    width: 30%;
-    height: 30%;
-}
-/* .circulo1{
-    height: 250px;
-    width: 250px;
-    border-radius: 50%;
-    background-color: black;
-    animation: movimiento 5s linear infinite;
 
 
+html {
+    scroll-behavior: smooth;
 }
-.circulo2{
-    height: 250px;
-    width: 250px;
+
+.titulo1 {
+    position: absolute;
+    top: 5px;
+    font-family: TT drugs;
+    font-size: 80px;
+}
+
+body {
+    background-color: #FFF5E5;
+    margin: 0; /* Elimina el margen por defecto */
+}
+.info h1{
+    color: black;
+}
+.logo {
+    position: relative;
+    margin-right: 670px;
+    height: 300px;
+    width: 300px;
     border-radius: 50%;
-    background-color: black;
-    animation: movimiento 5s linear infinite;
-   
+    background-image: url(../../multimedia/burbuja1.png);
+    background-size: cover;
+    box-shadow: 10px 30px 20px rgba(0, 0, 0, 0.726);
+}
+.elsitio{
+    mix-blend-mode: multiply;
+    
+    height: 450px;
+    width: 450px;
+    transform: translateY(-70px);
+}
+
+.marco{
+    transform: translateY(-100px);
     
 }
-.circulo3{
-    height: 250px;
-    width: 250px;
-    border-radius: 50%;
+
+#bodytext {
+    position: absolute;
+    border: solid 1px black;
+    margin-left: 300px;
+    border-radius: 15px;
+    background-color: #2E2E2E;
+    transform: translateY(-50px);
+    height: auto;
+    width: 800px;
+    box-shadow: 10px 15px 20px rgba(0, 0, 0, 0.726);
+}
+
+.relleno {
+    background-color: #B8B8B8;
+    height: 64.02px;
+    width: 50px;
+}
+#b2{
+    height: 300px;
+    width: 5px;
+    color: black;
     background-color: black;
-    animation: movimiento 5s linear infinite;
+    padding: 0;
+    
+    margin-bottom: 80px;
+}
 
-} */
 
-
-.burbujas{
+.linea {
+   
+    position: absolute;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    flex-direction: row;
-    margin-top: -100PX;
-}
-.burbuja1{
-    height: 250px;
-    width: 250px;
-    border-radius: 50%;
-    background-image: url(../../multimedia/burbuja\ cafeteria.png);
-    background-size: cover;
-}
-.burbuja2{
-    height: 250px;
-    width: 250px;
-    border-radius: 50%;
-    background-image: url(../../multimedia/Burbuja\ restobar.png);
-    background-size: cover;
-}
-.burbuja3{
-    height: 250px;
-    width: 250px;
-    border-radius: 50%;
-    background-image: url(../../multimedia/burbuja\ sobre\ nosotros.png);
-    background-size: cover;
-}
-.burbuja1:hover{
-    opacity: 50%;
-    scale: 1.05;
-
-}
-.burbuja2:hover{
-    opacity: 50%;
-    scale: 1.05;
-
-}
-.burbuja3:hover{
-    opacity: 50%;
-    scale: 1.05;
-
-}
-.burbuja1-padre{
-    border-radius: 50%;
-    margin-top: -40px;
-    width:350px;
-    height:350px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     flex-direction: column;
-    
-
+    height: 800px;
+    width: 150px;
+    margin-right: 1300px;
+   margin-bottom: 100px;
+   
 }
-.burbuja2-padre{
-    
-    border-radius: 50%;
-    margin-top: -40px;
-    width:350px;
-    height:350px;
+.texto {
+    transform: rotate(270deg);
+    height: 50px;
+    width: 400px;
     display: flex;
-    align-items: center;
     justify-content: center;
-    flex-direction: column;
+    align-items: center;
+    font-family: TT drugs;
+    font-size: 25px;
+}
 
-}
-.burbuja3-padre{
-    border-radius: 50%;
-    margin-top: -40px;
-    width:350px;
-    height:350px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
+
+
+/* Media queries para diferentes tamaños de pantalla */
+@media (min-width: 1200px) and (max-width:1370px){
     
-    
-}
-@keyframes movimiento{
-    0%{
-        transform: translateY(50px);
+    .logo {
+        margin-right: 500px;
+        transform: translateX(-50px);
+        height: 250px;
+        width: 250px;
     }
-    50%{
+
+    .info {
+        margin-left: 200px;
+        height: auto;
+        width: 750px;
+    }
+
+    .titulo1 {
+        font-size: 60px;
+    }
+    .linea1{
+        margin-left: 150px;
         transform: translateY(-50px);
     }
-    100%{
-        transform: translateY(50px);
+   
+}
+
+@media (max-width: 900px) {
+    .pagina1 {
+        flex-direction: row;
+        
+    }
+    .marco{
+        display: flex;
+        flex-direction: column;
+        margin-right: 500px;
+        margin-bottom:400px;
+    }
+    .logo {
+        margin-right: 300px;
+        
+        height: 300px;
+        width: 300px;
+     
+    }
+
+    .info {
+        margin-top: 350px;
+        margin-left: 10px;
+        height: 350px;
+        width: 520px;
+    }
+
+    .titulo1 {
+        font-size: 85px;
+    }
+
+    .linea1 {
+        position: static;
+        margin-right: 90px;
+        width: 100px;
+    }
+}
+
+@media (max-width: 600px) {
+    .pagina1 {
+        flex-direction: row;
+        
+    }
+    .marco{
+        display: flex;
+        flex-direction: column-reverse;
+        margin-right: 550px;
+        margin-top: 400px;
+    }
+
+    .logo {
+        margin-right: 0;
+        height: 250px;
+        width: 250px;
+        margin-bottom: 20px;
+    }
+
+    .info {
+        position: static;
+        margin: 0 auto;
+        height: 220px;
+        width: 350px;
+        font-size: 10px;
+        margin-bottom: 50px;
+    }
+
+    .titulo1 {
+        font-size: 70px;
+        text-align: center;
+    }
+
+    .linea1 {
+        position: static;
+        
+        margin-right: 50px;
+        margin-bottom: 100px;
+        width: 100px;
+        height: 400px;
+    }
+}
+
+@media (max-width: 450px)  {     
+    .pagina1{
+        display: flex;
+
+    }
+   .marco{
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    margin-bottom: 290px;
+
+    margin-right: 50px;
+    transform:translateX(-28px) ;
+    
+    
+   
+   }
+   .marco div{
+    margin: 0;
+   }
+   .marco img{
+    margin: 0;
+   }
+    .logo {
+        height: 200px;
+        width: 200px;
+        margin-bottom: 2px;
+        margin-right: 65px;
+        transform: translateX(20px);
+        
+    }
+
+    .info {
+        height: auto;
+        width: 250px;
+        font-size: 10px;
+        margin-right: 40px;
+       
+        
+    }
+
+    .titulo1 {
+      
+        font-size: 50px;
+    }
+
+    .linea1 {
+        transform: translateX(5px);
+        margin-bottom: 500px;
+        height: 200px;
+        width: 70px;
     }
 }

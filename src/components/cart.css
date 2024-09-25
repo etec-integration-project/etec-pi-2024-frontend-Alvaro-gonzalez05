@@ -15,12 +15,22 @@ img {
 /* Header */
 header {
 	display: flex;
+	z-index: 10;
 	justify-content: space-between;
+	
 	padding: 30px 0 40px 0;
+
+	width: 100%;
 }
 
 .container-icon {
 	position: relative;
+	display: flex;
+	flex-direction: row;
+}
+#sesion{
+	margin-right: 50px;
+	list-style: none;
 }
 
 .count-products {
@@ -48,7 +58,7 @@ header {
 	top: 50px;
 	right: 0;
 
-	background-color: #fff;
+	background-color: #FFF5E5;
 	width: 400px;
 	z-index: 1;
 	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
@@ -122,12 +132,19 @@ header {
 	display: flex;
     flex-wrap: wrap;
     justify-content: center;
+
+	
 }
 
 .item {
+	margin-top: 50px;
     margin: 10px;
 	border-radius: 10px;
+	background-color: #fff5e5df;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+	height: auto;
+	width: 300px;
+	
 
 }
 
@@ -165,12 +182,22 @@ header {
 }
 
 .info-product button {
-	border: none;
+	border-radius: 20px;
 	background: none;
 	background-color: #000;
 	color: #fff;
 	padding: 15px 10px;
 	cursor: pointer;
+}
+.info-product button:hover {
+	transform: translateY(-10px);
+	background-color: #605e5e;
+	border: none;
+}
+.info-product button:active {
+	transform: translateY(1px);
+	background-color: #2c8f3c;
+	border-color: none;
 }
 
 .cart-empty {

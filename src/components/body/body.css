@@ -121,16 +121,21 @@ body {
     
     .logo {
         margin-right: 500px;
-        transform: translateX(-50px);
+        
         height: 250px;
         width: 250px;
     }
+    .marco{
+        scale: 0.9;
+    }
 
     .info {
-        margin-left: 200px;
+        
+        margin-left: 100px;
         height: auto;
         width: 750px;
     }
+    
 
     .titulo1 {
         font-size: 60px;

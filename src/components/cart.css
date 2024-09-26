@@ -259,3 +259,22 @@ header {
   background-color: #333;
   
 }
+
+
+
+@media (min-width: 1200px) and (max-width:1370px){
+    
+    .item {
+		margin-top: 50px;
+		margin: 10px;
+		border-radius: 10px;
+		background-color: #fff5e5df;
+		box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+		height: 600px;
+		width: 250px;
+		
+	
+	}
+   
+}
+

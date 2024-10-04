@@ -43,7 +43,7 @@ export const ProductList = ({ allProducts, setAllProducts, countProducts, setCou
 
     return (
         <div className='container-items'>
-            {products.map(product => (
+            {/* {products.map(product => (
                 <Zoom cascade>
                     <div className='item' key={product.id}>
                         <figure>
@@ -58,7 +58,7 @@ export const ProductList = ({ allProducts, setAllProducts, countProducts, setCou
                         </div>
                     </div>
                 </Zoom>
-            ))}
+            ))} */}
         </div>
     );
 };

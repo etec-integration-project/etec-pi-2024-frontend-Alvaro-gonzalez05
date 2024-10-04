@@ -10,7 +10,7 @@ COPY package*.json ./
 
 # Ejecuta los comandos para instalar dependencias
 RUN npm install
-RUN npm install react-awesome-reveal @emotion/react
+# RUN npm install react-awesome-reveal @emotion/react
 
 # Copia el resto del código de la aplicación al contenedor
 COPY . .

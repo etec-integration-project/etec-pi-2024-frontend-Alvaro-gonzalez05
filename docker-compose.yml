@@ -1,0 +1,88 @@
+version: "3.8"
+
+services:
+  frontend:
+    build:
+      context: https://github.com/Alvaro-gonzalez05/Front-ITC.git
+      dockerfile: mi_proyecto_flask/dockerfile
+    ports:
+      - "5000:5000"
+    volumes:
+      - certs_front:/certs
+    networks:
+      - itc-network
+
+  api:
+    build:
+      context: https://github.com/Alvaro-gonzalez05/ITCSolucionesAPI.git
+      dockerfile: api/dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      - certs_back:/certs
+    environment:
+      - DB_HOST=db
+      - DB_USER=root
+      - DB_PASSWORD=Qwerty.123
+      - DB_NAME=prueba
+    depends_on:
+      - db
+    networks:
+      - itc-network
+
+  db:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: Qwerty.123
+      MYSQL_DATABASE: prueba
+    volumes:
+      - db_data:/var/lib/mysql
+    networks:
+      - itc-network
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.9.2
+    environment:
+      - discovery.type=single-node
+      - bootstrap.memory_lock=true
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    volumes:
+      - esdata:/usr/share/elasticsearch/data
+    networks:
+      
+      - itc-network
+
+  kibana:
+    image: docker.elastic.co/kibana/kibana:7.9.2
+    ports:
+      - "5601:5601"
+    networks:
+      - itc-network
+    depends_on:
+      - elasticsearch
+  
+  portainer:
+    image: portainer/portainer-ce:latest
+    ports:
+    - "9443:9443"
+    restart: unless-stopped
+    networks:
+      - itc-network
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - portainer_data:/data
+
+networks:
+  itc-network:
+    driver: bridge
+
+volumes:
+  portainer_data:
+  db_data:
+  certs_front:
+  certs_back:
+  esdata:
+    driver: local

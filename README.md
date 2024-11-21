@@ -13,5 +13,12 @@
 >
 >4- Veremos que se van a empezar a crear/levantar las imagenes de nuestros proyectos, una vez finalizada podremos entrar a nuestro front mediante ls siguiente url "https://0.0.0.0:5000" y nuestra api correra en el puerto 8000
 
+
+>[!Warning]
+>En el caso que no funcione entrar por "https://0.0.0.0:5000" prueba entrando por "https://127.0.0.1:5000" para el front, o "https://127.0.0.1:8000" para la api
+
+>[!Tip]
+>Para explorar todas las funcionalidades del proyecto registrarse como "admid" en el register, y despues logearse desde el login 
+
 >[!Caution]
 >Recuerda que si queremos entrar a nuestra api ,esta nos rechazara la conexion porque no cumplimos con el certificado que pide. Solo se podria acceder ,a ver la api, agregandole el certificado al navegador.

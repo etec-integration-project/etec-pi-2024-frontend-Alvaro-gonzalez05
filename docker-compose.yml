@@ -14,7 +14,7 @@ services:
 
   api:
     build:
-      context: https://github.com/Alvaro-gonzalez05/ITCSolucionesAPI.git
+      context: https://github.com/etec-integration-project/etec-pi-2024-backend-Alvaro-gonzalez05.git
       dockerfile: api/dockerfile
     ports:
       - "8000:8000"
